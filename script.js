@@ -96,6 +96,25 @@ function updateEntryNum() {
   entryNum.textContent = nameKeys.length;
 }
 
+// function to format numbers into xxx-xxx-xxxx
+// takes string of a number
+function formatNumber(numStr) {
+  // trim white space from beginning and end of string
+  numStr = numStr.trim();
+  // remove inner whitespace and hyphens
+  numStr = numStr.replace(/-|\s/g, "");
+  // convert string to array
+  let numArr = numStr.split("");
+
+  // insert appropriate hyphens
+  numArr.splice(6, 0, "-");
+  numArr.splice(3, 0, "-");
+
+  // return formatted number string
+  let formattedNum = numArr.join("");
+  return formattedNum;
+}
+
 // function to populate Datebase Entry area and
 // Select Options ON DOCUMENT LOAD
 // ONLY IF there are any database entries in storage
@@ -135,10 +154,10 @@ addBtn.addEventListener("click", function (e) {
   addFNameError.textContent = "";
   addPhoneError.textContent = "";
 
-  // initialize input variables
+  // initialize input variables and format number
   let inputFName = addFName.value;
   let inputLName = addLName.value;
-  let inputPhone = addPhone.value;
+  let inputPhone = formatNumber(addPhone.value);
 
   console.log(phoneFormat.test(inputPhone));
 
@@ -357,11 +376,10 @@ submitBtn.addEventListener("click", function (e) {
     let index = editIndex;
     let id = nameKeys[index]["id"];
 
-    // updates database object
+    // updates database object including formatted number
     nameKeys[index]["fName"] = editFName.value;
     nameKeys[index]["lName"] = editLName.value;
-    nameKeys[index]["phone"] = editPhone.value;
-
+    nameKeys[index]["phone"] = formatNumber(editPhone.value);
     // updates Database Entry section of screen
     displayDatabase(
       nameKeys[index]["fName"],
