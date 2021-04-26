@@ -227,7 +227,8 @@ addBtn.addEventListener("click", function (e) {
   }
   if (!phoneFormat.test(inputPhone) && inputPhone !== "") {
     addPhoneError.textContent = `
-      Phone Number MUST be in xxx-xxx-xxxx format or LEFT BLANK`;
+      Phone Number MUST be in xxx-xxx-xxxx or
+      xxxxxxxxxx (10 straight numbers) format or LEFT BLANK`;
   }
 });
 
@@ -404,7 +405,8 @@ submitBtn.addEventListener("click", function (e) {
   }
   if (!phoneFormat.test(editPhone.value) && editPhone.value !== "") {
     editPhoneError.textContent = `
-      Phone Number MUST be in xxx-xxx-xxxx format or LEFT BLANK`;
+    Phone Number MUST be in xxx-xxx-xxxx or
+    xxxxxxxxxx (10 straight numbers) format or LEFT BLANK`;
   }
 });
 
