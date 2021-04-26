@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Database of People</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="modal" class="modal">
+      <div class="modal-window">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+          <p>
+            This simple database stores First Names, Last Names, and Phone
+            Numbers onto your web browser's local storage.
+          </p>
+          <p>Features:</p>
+          <ul>
+            <li>The ONLY required field is First Name</li>
+            <li>Last Name is optional</li>
+            <li>
+              Phone is optional but must be a number in 10 digit format with
+              hypens, spaces, or simply 10 digits
+            </li>
+            <li>
+              Database entries are stored in alphabetical order by First Name
+            </li>
+            <li>You may edit any field</li>
+            <li>You may delete any database entry</li>
+            <li>
+              If you close your browser and re-open it, the database entries are
+              still there.
+            </li>
+            <li>ENJOY!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header>
+        <h1>Simple Database of People</h1>
+      </header>
+
+      <input type="button" id="modalBtn" value="CLICK FOR INFORMATION" />
+      <aside>
+        <p>
+          This simple database stores First Names, Last Names, and Phone Numbers
+          onto your web browser's local storage.
+        </p>
+        <p>Features:</p>
+        <ul>
+          <li>The ONLY required field is First Name</li>
+          <li>Last Name is optional</li>
+          <li>
+            Phone is optional but must be a number in 10 digit format with
+            hypens, spaces, or simply 10 digits
+          </li>
+          <li>
+            Database entries are stored in alphabetical order by First Name
+          </li>
+          <li>You may edit any field</li>
+          <li>You may delete any database entry</li>
+          <li>
+            If you close your browser and re-open it, the database entries are
+            still there.
+          </li>
+          <li>ENJOY!</li>
+        </ul>
+      </aside>
+      <main>
+        <form class="addForm">
+          <h2>Enter Person's Info to Add to Database</h2>
+          <label>First Name: </label>
+          <br />
+          <input
+            type="text"
+            name="f-name-add"
+            id="f-name-add"
+            placeholder="Required..."
+          />
+          <br />
+          <label>Last Name: </label>
+          <br />
+          <input type="text" name="l-name-add" id="l-name-add" />
+          <br />
+          <label>Phone: </label>
+          <br />
+          <input
+            type="tel"
+            name="phone-add"
+            id="phone-add"
+            placeholder="xxx-xxx-xxxx format"
+            pattern="^\d{3}-\d{3}-\d{4}$"
+          />
+          <br />
+          <input type="button" id="add-btn" value="ADD" />
+          <br />
+          <p id="addFNameError" class="addError"></p>
+          <p id="addPhoneError" class="addError"></p>
+        </form>
+        <br />
+        <div id="showDB" class="entrySection hide">
+          <h2>Database Entry:</h2>
+          <h3>Number of Database Entries: <span id="entryNum"></span></h3>
+          <div id="sel" class="hide">
+            <label>Select a name to change the Database Entry</label>
+            <br />
+            <select name="f-name" id="f-name"></select>
+          </div>
+          <p>First Name: <span id="fNameDB"></span></p>
+          <p>Last Name: <span id="lNameDB"></span></p>
+          <p>Phone: <span id="phoneDB"></span></p>
+          <input type="button" id="deleteBtn" value="DELETE" />
+          <input type="button" id="editBtn" value="EDIT" />
+        </div>
+      </main>
+
+      <div class="hide" id="editForm">
+        <form class="editForm">
+          <h2>Edit Entry:</h2>
+          <label>First Name: </label>
+          <br />
+          <input type="text" id="editFName" />
+          <br />
+          <label>Last Name: </label>
+          <br />
+          <input type="text" id="editLName" />
+          <br />
+          <label>Phone: </label>
+          <br />
+          <input type="text" id="editPhone" />
+          <br />
+          <input type="button" id="editSubmit" class="button" value="SUBMIT" />
+          <input type="button" id="editCancel" class="button" value="CANCEL" />
+          <br />
+          <p id="editFNameError" class="addError"></p>
+          <p id="editPhoneError" class="addError"></p>
+        </form>
+      </div>
+
+      <footer>
+        <ul>
+          <li>Brad Barnes</li>
+          <li>ITSE 2302.250</li>
+          <li>SEMESTER PROJECT</li>
+          <li>SPRING 2021</li>
+          <li>
+            <a href="mailto:bbarnes21@collin.edu">bbarnes21@collin.edu</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

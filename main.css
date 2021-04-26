@@ -1,0 +1,270 @@
+html * {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fefefe;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+#container {
+  max-width: 1000px;
+  background-color: #f1f1f1;
+  /* margin-left: 2%;
+  margin-right: 2%; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+  padding: 50px;
+}
+
+header {
+  grid-area: header;
+  background-color: white;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.9rem;
+  text-align: center;
+  padding: 10px;
+  /* margin-left: -12.5%;
+  margin-right: -12.5%;
+  margin-top: -12%; */
+  margin-left: -50px;
+  margin-right: -50px;
+  margin-top: -55px;
+  border-bottom: 2px solid black;
+}
+header h1 {
+  text-transform: uppercase;
+  text-shadow: 2px 2px 2px gray;
+  line-height: 3.8rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-window {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 3%;
+  border: 1px solid black;
+  width: 80%;
+}
+
+.modal-content p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.modal-content ul li {
+  font-size: 1.1rem;
+}
+
+#modalBtn {
+  grid-area: button;
+  padding: 15px;
+  font-size: 1.2rem;
+  background-color: rgb(191, 51, 51);
+  color: #fefefe;
+  border-radius: 0 0 7px 7px;
+  margin-bottom: 10px;
+}
+
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.is-blurred {
+  filter: blur(1px);
+}
+
+aside {
+  display: none;
+}
+
+main {
+  grid-area: main;
+}
+
+#editForm {
+  grid-area: edit;
+}
+
+.hide {
+  display: none;
+}
+
+.addError {
+  color: red;
+}
+
+.addForm label,
+.editForm label,
+.entrySection p {
+  font-size: 1.1rem;
+}
+
+.addForm label,
+.editForm label {
+  font-weight: 550;
+}
+
+.addForm input[type="text"],
+.addForm input[type="tel"],
+.editForm input[type="text"],
+.addForm input[type="tel"] {
+  margin-top: 7px;
+  margin-bottom: 15px;
+  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.addForm input[type="button"],
+.editForm input[type="button"],
+.entrySection input[type="button"] {
+  margin-top: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgb(84, 83, 83);
+  color: white;
+  box-shadow: 3px 3px 3px lightgray;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.addForm input[type="button"]:active,
+.editForm input[type="button"]:active,
+.entrySection input[type="button"]:active {
+  box-shadow: inset 0.7px 0.7px lightgray;
+}
+
+.entrySection select {
+  /* min-width: 80px; */
+  min-width: 35%;
+  margin-top: 15px;
+  padding: 5px;
+  font-size: 1.1rem;
+}
+
+.entrySection span {
+  font-weight: bold;
+}
+
+.entrySection {
+  margin-bottom: 40px;
+  border-top: 2px solid black;
+  font-size: 1.1rem;
+}
+
+#editForm {
+  border-top: 2px solid black;
+}
+
+footer {
+  grid-area: footer;
+  background-color: lightgray;
+  padding: 25px;
+  margin-top: 50px;
+  margin-left: -50px;
+  margin-right: -50px;
+  margin-bottom: -60px;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 900px) {
+  #container {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "main aside"
+      "main edit"
+      "footer footer";
+  }
+
+  #modalBtn {
+    display: none;
+  }
+
+  aside {
+    display: block;
+    padding-left: 10%;
+    padding-right: 7%;
+    margin-left: 30px;
+    /* margin-left: 3%; */
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  aside {
+    grid-area: aside;
+    padding-bottom: 10%;
+    /* margin-bottom: -17px; */
+  }
+
+  main {
+    grid-area: main;
+    padding-left: 5%;
+    padding-right: 10%;
+    margin-right: 2.2%;
+    border-right: 2px solid black;
+  }
+
+  #editForm {
+    grid-area: edit;
+    padding-right: 5%;
+    border-top: 2px solid black;
+    margin-left: 15%;
+  }
+
+  #editForm .button {
+    margin-top: 20px;
+  }
+
+  aside p {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: darkred;
+  }
+
+  aside ul li {
+    font-size: 1.1rem;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}
