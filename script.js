@@ -32,7 +32,7 @@ const editPhoneError = document.getElementById("editFNameError");
 // variable declarations
 // Array that holds database objects
 let nameKeys = [];
-// variable to retrieve locally stored array 
+// variable to retrieve locally stored array
 let nameLoad;
 // global variable
 let id = 0;
@@ -112,6 +112,11 @@ function formatNumber(numStr) {
 
   // return formatted number string
   let formattedNum = numArr.join("");
+
+  // make sure that any blank string doesn't return "--" with the two hyphens added
+  // hyphens are removed
+  if (formattedNum === "--") formattedNum = "";
+  //formatted number is returned
   return formattedNum;
 }
 
@@ -159,13 +164,15 @@ addBtn.addEventListener("click", function (e) {
   let inputLName = addLName.value;
   let inputPhone = formatNumber(addPhone.value);
 
-  console.log(phoneFormat.test(inputPhone));
+  //   console.log("addPhone.value: " + typeof addPhone.value);
+  console.log(formatNumber(addPhone.value));
 
   // checks to see if first name is not empty as well as phone format
   if (
     inputFName !== "" &&
-    (phoneFormat.test(inputPhone) || inputPhone === "")
+    (phoneFormat.test(addPhone.value) || addPhone.value === "")
   ) {
+    console.log("TEST!!!");
     // sets up temporary database object
     let tempDBObject = {
       fName: "",
@@ -221,11 +228,12 @@ addBtn.addEventListener("click", function (e) {
     addLName.value = "";
     addPhone.value = "";
   }
+
   // shows error message if first name is empty
   if (inputFName === "") {
     addFNameError.textContent = `Database Entry MUST have First Name`;
   }
-  if (!phoneFormat.test(inputPhone) && inputPhone !== "") {
+  if (!phoneFormat.test(addPhone.value) && addPhone.value !== "") {
     addPhoneError.textContent = `
       Phone Number MUST be in xxx-xxx-xxxx or
       xxxxxxxxxx (10 straight numbers) format or LEFT BLANK`;
