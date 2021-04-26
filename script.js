@@ -32,7 +32,7 @@ const editPhoneError = document.getElementById("editFNameError");
 // variable declarations
 // Array that holds database objects
 let nameKeys = [];
-// variable to retrieve locally stored array
+// variable to retrieve locally stored array 
 let nameLoad;
 // global variable
 let id = 0;
